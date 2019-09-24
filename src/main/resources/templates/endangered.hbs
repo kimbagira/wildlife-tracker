@@ -1,0 +1,31 @@
+{{#partial "content"}}
+
+                    <h1 class="top">EndangeredAnimal</h1>
+                    <form action="/details" method="post">
+                        <div class="form-group">
+                            <label>EndangeredName</label><br>
+                            <input type="text" id="EndangeredName" name="EndangeredName" class="form-control" placeholder="">
+                        </div><br>
+                        <label>health:</label><br>
+                        <select name="Health">
+                            <option label="Health">choose good-health or bad-health</option>
+                            <div id="Health">
+                                <option value="Zone A">good-health</option>
+                                <option value="Zone B">bad-health</option>
+                            </div>
+                        </select><br><br>
+                        <div class="form-group">
+                            <label>Age</label><br>
+                            <input type="text" id="Age" name="Age" class="form-control" placeholder="">
+                        </div><br>
+                        <div class="form-group">
+                            <label>IdEndangered</label><br>
+                            <input type="text" id="IdEndangered" name="IdEndangered" class="form-control" placeholder="">
+                   </div>
+                        <button class="btn btn-primary" type="submit">submit
+                            <span class="glyphicon glyphicon-plus"></span></button>
+                   </form>
+                    <a href="/sighting">sighting form</a>
+{{/partial}}
+
+{{> layout.hbs}}

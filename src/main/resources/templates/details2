@@ -1,0 +1,7 @@
+{{#partial "content"}}
+
+    <a href="/sighting">view list</a>
+
+{{/partial}}
+
+{{> layout.hbs}}
