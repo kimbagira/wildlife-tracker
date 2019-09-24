@@ -69,8 +69,8 @@ public class App{
             model.put("Health",Health);
             model.put("Age",Age);
             model.put("IdEndangered",IdEndangered);
-            EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal(EndangeredName, Health, Age, IdEndangered);
-            newEndangeredAnimal.save();
+//            EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal(EndangeredName, Health, Age, IdEndangered);
+//            newEndangeredAnimal.save();
             return new ModelAndView(model, "details1.hbs");
         }, new  HandlebarsTemplateEngine());
 

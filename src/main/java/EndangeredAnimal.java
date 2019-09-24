@@ -32,12 +32,12 @@ public class EndangeredAnimal{
 
     public void save() {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO endangered(EndangeredName, Health, Age, IdEndangered) VALUES (:EndangeredName, Health, Age, IdEndangered)";
+            String sql = "INSERT INTO endangered(EndangeredName, Health, Age, IdEndangered) VALUES (:EndangeredName,:Health,:Age,:IdEndangered)";
             this.Endangered_Id = (int) con.createQuery(sql, true)
-                    .addParameter("Name", this.EndangeredName)
-                    .addParameter("Name", this.Health)
-                    .addParameter("Name", this.Age)
-                    .addParameter("id", this.IdEndangered)
+                    .addParameter("EndangeredName", this.EndangeredName)
+                    .addParameter("Health", this.Health)
+                    .addParameter("Age", this.Age)
+                    .addParameter("IdEndangered", this.IdEndangered)
                     .executeUpdate()
                     .getKey();
         }
