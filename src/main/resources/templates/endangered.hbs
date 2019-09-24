@@ -1,5 +1,5 @@
 {{#partial "content"}}
-
+    <body>
                     <h1 class="top">EndangeredAnimal</h1>
                     <form action="/endangered" method="post">
                         <div class="form-group">
@@ -26,5 +26,15 @@
                             <span class="glyphicon glyphicon-plus"></span></button>
                    </form>
                     <a href="/sighting">sighting form</a>
+
+    </body>
+
 {{/partial}}
+<style>
+    body{
+    background-image:url('http://www.sonyphotog.com/photos/globalmedicalco/1/3901.jpg');
+      background-repeat:no-repeat;
+    background-size:cover;
+    }
+</style>
 {{> layout.hbs}}

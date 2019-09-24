@@ -1,14 +1,17 @@
-{{#partial "content"}}
 
+{{#partial "content"}}
+    <body>
 {{#each animals}}
     {{#if animals}}
        name: {{name}}
-
-
-        <br>
+       <br>
     {{/if}}
         {{/each}}
-
+  </body>
 {{/partial}}
-
+<style>
+    body{
+    background-image:url('https://ak5.picdn.net/shutterstock/videos/1024199135/thumb/1.jpg');
+    }
+</style>
 {{> layout.hbs}}

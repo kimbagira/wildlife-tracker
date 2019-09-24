@@ -40,15 +40,6 @@ public class Animal{
         }
     }
 
-//    public List<Animal> getAnimal() {
-//        try (Connection con = (Connection) DB.sql2o.open()) {
-//            String sql = "SELECT * FROM Animals where animalid=:id";
-//            return ((org.sql2o.Connection) con).createQuery(sql)
-//                    .addParameter("id", this.id)
-//                    .executeAndFetch(Animal.class);
-//
-//        }
-//    }
 
 
 }

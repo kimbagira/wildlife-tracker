@@ -5,7 +5,6 @@ import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
 
 import static spark.Spark.*;
-//import spark.template.velocity.VelocityTemplateEngine;
 
 
 public class App{
@@ -84,8 +83,7 @@ public class App{
 
         get("/sighting", (request, respond) ->{
             Map<String, Object> model = new HashMap<String, Object>();
-//            List<Sighting> sighting=Sighting.all();
-//            model.put("sighting", sighting);
+
             return new ModelAndView(model, "sighting.hbs");
         }, new HandlebarsTemplateEngine ());
 
