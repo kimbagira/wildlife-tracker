@@ -1,41 +1,40 @@
 import java.util.ArrayList;
 import java.util.List;
+
+
 import org.sql2o.*;
 import java.util.List;
 
 public class Sighting{
-    private String RangerName;
-    private String Location;
-    private int AnimalId;
+    private String rangername;
+    private String location;
 
-    private int Animal_Id;
+private int id;
+//    private int Animal_Id;
 
-    public Sighting (String RangerName, String Location, int AnimalId){
-        this.RangerName = RangerName;
-        this.Location = Location;
-        this.AnimalId = AnimalId;
+    public Sighting ( String Location,String RangerName){
+        this.rangername = RangerName;
+        this.location = Location;
+
     }
 
     public String getRanger(){
-        return RangerName;
+        return rangername;
     }
 
     public String getLocation(){
-        return Location;
+        return location;
     }
 
-    public int getAnimalId(){
-        return AnimalId;
-    }
+
 
 
     public void save() {
         try(Connection con = DB.sql2o.open()) {
-            String sql = "INSERT INTO sighting (RangerName, Location, AnimalId) VALUES (:RangerName, :Location, :AnimalId)";
-            this.AnimalId = (int) con.createQuery(sql, true)
-                    .addParameter("RangerName", this.RangerName)
-                    .addParameter("Location", this.Location)
-                    .addParameter("AnimalId", this.AnimalId)
+            String sql = "INSERT INTO sighting (location,rangername) VALUES (:location, :rangername)";
+            this.id = (int) con.createQuery(sql, true)
+                    .addParameter("rangername", this.rangername)
+                    .addParameter("location", this.location)
                     .executeUpdate()
                     .getKey();
         }
@@ -53,7 +52,7 @@ public class Sighting{
         try (Connection con = (Connection) DB.sql2o.open()) {
             String sql = "SELECT * FROM EndengeredAnimal where EndengeredAnimalId=:IdEndengered";
             return ((org.sql2o.Connection) con).createQuery(sql)
-                    .addParameter("Id", this.Animal_Id)
+//                    .addParameter("Id", this.Animal_Id)
                     .executeAndFetch(Sighting.class);
 
         }

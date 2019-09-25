@@ -18,7 +18,6 @@ public class App{
         }
         setPort(port);
 
-
         staticFileLocation("/public");
         String layout = "/layout.hbs";
 
@@ -68,8 +67,6 @@ public class App{
             model.put("Health",Health);
             model.put("Age",Age);
             model.put("IdEndangered",IdEndangered);
-//            EndangeredAnimal newEndangeredAnimal = new EndangeredAnimal(EndangeredName, Health, Age, IdEndangered);
-//            newEndangeredAnimal.save();
             return new ModelAndView(model, "details1.hbs");
         }, new  HandlebarsTemplateEngine());
 
@@ -83,7 +80,6 @@ public class App{
 
         get("/sighting", (request, respond) ->{
             Map<String, Object> model = new HashMap<String, Object>();
-
             return new ModelAndView(model, "sighting.hbs");
         }, new HandlebarsTemplateEngine ());
 
@@ -91,14 +87,10 @@ public class App{
             Map<String, Object> model = new HashMap<String, Object>();
             String RangerName = request.queryParams("RangerName");
             String Location = request.queryParams("Location");
-            int AnimalId=Integer.parseInt(request.queryParams("AnimalId"));
             model.put("RangerName",RangerName);
             model.put("Location",Location);
-            model.put("AnimalId",AnimalId);
-            Sighting newSighting = new Sighting( RangerName, Location,AnimalId);
+            Sighting newSighting = new Sighting( RangerName, Location);
             newSighting.save();
-
-
             return new ModelAndView(model, "details2.hbs");
         }, new  HandlebarsTemplateEngine());
 
