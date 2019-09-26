@@ -27,18 +27,18 @@ private int id;
     }
 
 
-
-
     public void save() {
         try(Connection con = DB.sql2o.open()) {
             String sql = "INSERT INTO sighting (location,rangername) VALUES (:location, :rangername)";
             this.id = (int) con.createQuery(sql, true)
                     .addParameter("rangername", this.rangername)
-                    .addParameter("location", this.location)
+                    .addParameter("location", this.location )
                     .executeUpdate()
                     .getKey();
         }
     }
+
+
 
     public static List<Sighting> all() {
         String sql = "select * from sighting";
@@ -52,7 +52,7 @@ private int id;
         try (Connection con = (Connection) DB.sql2o.open()) {
             String sql = "SELECT * FROM EndengeredAnimal where EndengeredAnimalId=:IdEndengered";
             return ((org.sql2o.Connection) con).createQuery(sql)
-//                    .addParameter("Id", this.Animal_Id)
+
                     .executeAndFetch(Sighting.class);
 
         }

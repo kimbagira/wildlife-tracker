@@ -83,6 +83,13 @@ public class App{
             return new ModelAndView(model, "sighting.hbs");
         }, new HandlebarsTemplateEngine ());
 
+        get("/sighting", (request, respond) ->{
+            Map<String, Object> model = new HashMap<String, Object>();
+            List<Sighting> sighting=Sighting.all();
+            model.put("sighting", sighting);
+            return new ModelAndView(model, "details2.hbs");
+        }, new HandlebarsTemplateEngine ());
+
         post("/sighting", (request, respond) ->{
             Map<String, Object> model = new HashMap<String, Object>();
             String RangerName = request.queryParams("RangerName");
@@ -90,9 +97,10 @@ public class App{
             model.put("RangerName",RangerName);
             model.put("Location",Location);
             Sighting newSighting = new Sighting( RangerName, Location);
-            newSighting.save();
+//            newSighting.save();
             return new ModelAndView(model, "details2.hbs");
         }, new  HandlebarsTemplateEngine());
+
 
 
 
